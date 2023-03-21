@@ -1,7 +1,13 @@
 // ---- Define your dialogs  and panels here ----
+newEP = define_new_effective_permissions("new_permission", add_info_col = true, which_permissions = null)
+newUser = define_new_user_select_field("new_permission", "new_user", on_user_change = function(selected_user){
+    $('#new_permission').attr('username', selected_user)
+    $('#new_permission').attr('filepath', '"/C/presentation_documents/important_file.txt_permicon')
+})
 
-
-
+newDialogue = define_new_dialog("new_permission", title='')
+user_action = allow_user_action(my_file_obj_var = path_to_file[$('#new_permission').filename], user_obj = all_users[$('#new_permission').user], true, explain_why = false)
+explanation = get_explanation_text(user_action) 
 // ---- Display file structure ----
 
 // (recursively) makes and returns an html element (wrapped in a jquery object) for a given file object
